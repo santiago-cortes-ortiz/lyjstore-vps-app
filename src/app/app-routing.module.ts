@@ -3,9 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import {NavegacionComponent} from './navegacion/navegacion.component';
 import {AppComponent} from './app.component';
 import {InicioComponent} from './inicio/inicio.component';
+import {BancoComponent} from './banco/banco.component';
 
 const routes: Routes = [
-  {path: 'inicio', component: InicioComponent}
+  {path: 'inicio', component: InicioComponent},
+  {path: 'banco', component: BancoComponent},
+  {path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({
