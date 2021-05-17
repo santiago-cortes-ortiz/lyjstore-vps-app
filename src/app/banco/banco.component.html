@@ -1,4 +1,4 @@
-<nav class=" navbar-expand-lg navbar navbar-light bg-light">
+<nav class=" navbar-expand-lg navbar navbar-dark bg-dart">
   <a class="navbar-brand" style="color:white;">Employee Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,42 +29,19 @@
   </div>
 </div>
 <!-- adicionar empleado Modal  -->
-<div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form >
-          <div class="form-group">
-            <label >Name</label>
-            <input type="text" ngModel name="name" class="form-control"  placeholder="Name" required>
-          </div>
-          <div class="form-group">
-            <label >Email Address</label>
-            <input type="email" ngModel name="email" class="form-control"  placeholder="Email" required>
-          </div>
-          <div class="form-group">
-            <label >Job title</label>
-            <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title" required>
-          </div>
-          <div class="form-group">
-            <label >Phone</label>
-            <input type="text" ngModel name="phone" class="form-control"  placeholder="Phone" required>
-          </div>
-          <div class="form-group">
-            <label >Image URL</label>
-            <input type="text" ngModel name="imageUrl" class="form-control"  placeholder="Image URL" required>
-          </div>
-          <div class="modal-footer">
-            <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button   type="submit" class="btn btn-primary" >Save changes</button>
-          </div>
-        </form>
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
       </div>
     </div>
   </div>
