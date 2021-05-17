@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {NavegacionComponent} from './navegacion/navegacion.component';
-import {AppComponent} from './app.component';
+
 import {InicioComponent} from './inicio/inicio.component';
 import {BancoComponent} from './banco/banco.component';
 

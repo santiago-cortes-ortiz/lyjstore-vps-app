@@ -1,3 +1,6 @@
 .hoveradd:hover{
   background-color: greenyellow;
 }
+.mayuscula{
+  text-transform: uppercase;
+}
