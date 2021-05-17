@@ -30,14 +30,17 @@ export class BancoComponent implements OnInit {
     );
   }
 
-  public onOpenModal( mode: string): void{
+  public onOpenModal(banco: Banco, mode: string): void{
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
     button.setAttribute('data-bs-toggle', 'modal');
     if (mode === 'agregar'){
-      button.setAttribute('data-bs-target', '#adicionarEmpleado');
+      button.setAttribute('data-bs-target', '#adicionarBanco');
+    }
+    if (mode === 'modificar'){
+      button.setAttribute('data-bs-target', '#modificarBanco');
     }
     // @ts-ignore
     container.appendChild(button);
@@ -57,6 +60,7 @@ export class BancoComponent implements OnInit {
         (error: HttpErrorResponse) => { alert(error.message); }
       );
   }
+
 
 
 }
