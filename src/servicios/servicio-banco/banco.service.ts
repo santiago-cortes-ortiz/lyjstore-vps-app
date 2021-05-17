@@ -16,4 +16,9 @@ export class BancoService {
   public listarBancos(): Observable<Banco[]> {
     return this.http.get<Banco[]>(`${this.urlBackendBanco}/banco/listar`);
   }
+
+  public adicionarBanco(banco: Banco, id: number): Observable<Banco> {
+    return this.http.put<Banco>(`${this.urlBackendBanco}/banco/${id}`, banco);
+  }
+
 }
