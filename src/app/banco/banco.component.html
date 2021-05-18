@@ -60,15 +60,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form #formulario="ngForm" (ngSubmit)="adicionarBanco(formulario)">
+        <form #formularioModificar="ngForm">
           <div class="mb-3 form-group">
             <label for="nombreToModificar" class="form-label">Nombre</label>
-            <input type="text" ngModel name="nombre" class="form-control" id="nombreToModificar" required>
+            <input type="text" ngModel="{{bancoAEditar?.nombre}}" name="nombre" class="form-control" id="nombreToModificar" required>
             <div class="form-text">Nombre del banco a modificar.</div>
           </div>
           <div class="modal-footer">
             <button type="button" id="modificar-banco-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button [disabled]="formulario.invalid" type="submit" class="btn btn-primary">Guardar</button>
+            <button (click)="actualizarBanco(formularioModificar.value)" data-dismiss="modal"  class="btn btn-primary">Guardar</button>
           </div>
         </form>
       </div>
