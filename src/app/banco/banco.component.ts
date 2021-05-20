@@ -15,6 +15,8 @@ export class BancoComponent implements OnInit {
 
   public bancoAEditar: Banco = null;
 
+  public bancoAEliminar: Banco;
+
   constructor(private bancoServicio: BancoService) { }
 
   ngOnInit(): void {
@@ -45,6 +47,10 @@ export class BancoComponent implements OnInit {
       this.bancoAEditar = banco;
       button.setAttribute('data-bs-target', '#modificarBanco');
     }
+    if (mode === 'eliminar'){
+      this.bancoAEliminar = banco;
+      button.setAttribute('data-bs-target', '#eliminarBancoPorId');
+    }
     // @ts-ignore
     container.appendChild(button);
     button.click();
@@ -70,6 +76,19 @@ export class BancoComponent implements OnInit {
     this.bancoServicio.adicionarBanco(banco, idBanco)
       .subscribe(
         (response: Banco) => {
+          console.log(response);
+          this.listarBancos();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+  }
+
+  public eliminarBancoPorId(idBanco: number): void{
+    this.bancoServicio.eliminarBancoPorId(idBanco)
+      .subscribe(
+        (response: void) => {
           console.log(response);
           this.listarBancos();
         },

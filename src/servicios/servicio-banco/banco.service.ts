@@ -21,4 +21,7 @@ export class BancoService {
     return this.http.put<Banco>(`${this.urlBackendBanco}/banco/${id}`, banco);
   }
 
+  public eliminarBancoPorId(idBanco: number): Observable<void>{
+    return this.http.delete<void>(`${this.urlBackendBanco}/banco/${idBanco}`);
+  }
 }

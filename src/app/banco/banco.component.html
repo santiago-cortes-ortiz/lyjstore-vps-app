@@ -21,7 +21,7 @@
       <h5 class="card-title mayuscula">{{ banco.nombre }}</h5>
       <p class="card-text">este es el banco de {{ banco.nombre }}</p>
       <div>
-        <a class="btn btn-danger me-3">Eliminar</a>
+        <a (click)="onOpenModal(banco,'eliminar')" class="btn btn-danger me-3">Eliminar</a>
         <a (click)="onOpenModal(banco,'modificar')" class="btn btn-warning">Modificar</a>
       </div>
     </div>
@@ -56,7 +56,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" >Modifica el banco</h5>
+        <h5 class="modal-title">Modifica el banco</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -68,9 +68,27 @@
           </div>
           <div class="modal-footer">
             <button type="button" id="modificar-banco-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button (click)="actualizarBanco(formularioModificar.value)" data-dismiss="modal"  class="btn btn-primary">Guardar</button>
+            <button (click)="actualizarBanco(formularioModificar.value)" data-bs-dismiss="modal"  class="btn btn-primary">Guardar</button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- EliminarBANCO -->
+<div class="modal fade" id="eliminarBancoPorId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar banco</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿ Esta seguro que desea eliminar el banco {{ bancoAEliminar?.nombre }} ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="eliminarBancoPorId(bancoAEliminar?.id)" type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
       </div>
     </div>
   </div>
