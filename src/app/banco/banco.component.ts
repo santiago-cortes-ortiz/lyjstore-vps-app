@@ -85,6 +85,19 @@ export class BancoComponent implements OnInit {
       );
   }
 
+  public buscarBanco(key: string): void{
+    const resultados: Banco[] = [];
+    for (const banco of this.bancos){
+      if (banco.nombre.indexOf(key) !== -1){
+        resultados.push(banco);
+      }
+    }
+    this.bancos = resultados;
+    if (resultados.length === 0 || !key){
+      this.listarBancos();
+    }
+  }
+
   public eliminarBancoPorId(idBanco: number): void{
     this.bancoServicio.eliminarBancoPorId(idBanco)
       .subscribe(

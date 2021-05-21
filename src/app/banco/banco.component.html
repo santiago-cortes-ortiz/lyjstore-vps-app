@@ -9,8 +9,8 @@
       </ul>
     </div>
     <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+      <input type="search" (ngModelChange) = "buscarBanco(key.value)" #key = "ngModel" ngModel
+             name="key" id="searchBanco" class="form-control mr-sm-2" placeholder="buscar banco..." required>
     </form>
   </div>
 </nav>
