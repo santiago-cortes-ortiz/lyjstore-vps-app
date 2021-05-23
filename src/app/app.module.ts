@@ -8,13 +8,15 @@ import { BancoComponent } from './banco/banco.component';
 import { InicioComponent } from './inicio/inicio.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { FormadepagoComponent } from './formadepago/formadepago.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavegacionComponent,
     BancoComponent,
-    InicioComponent
+    InicioComponent,
+    FormadepagoComponent
   ],
   imports: [
     BrowserModule,
