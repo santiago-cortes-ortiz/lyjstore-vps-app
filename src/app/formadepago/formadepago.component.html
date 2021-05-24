@@ -2,7 +2,7 @@
   <form style="margin-top: 60px">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">N# Tarjeta</label>
-      <input type="number" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp">
+      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="numero de la tarjeta"  aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text">Digita el numero de la forma de pago</div>
     </div>
     <div class="mb-3">
@@ -22,3 +22,24 @@
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </div>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">N° Tarjeta</th>
+      <th scope="col">Banco</th>
+      <th scope="col">Tipo de cuenta</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let formadepago of formasDePago">
+      <th scope="row">{{ formadepago.id }}</th>
+      <td>{{ formadepago.numeroPagos }}</td>
+      <td>{{ buscarNombreBancoPorId(formadepago.idBanco) }}</td>
+      <td> {{ buscarTipoDeCuentaPorId(formadepago.idTipoDeCuenta) }} </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

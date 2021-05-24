@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {FormaDePago} from '../../app/formadepago/FormaDePago';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormadepagoService {
 
-  constructor() { }
+  private urlBanckendFormaDePago: string = environment.apiBackendUrl;
+
+  constructor(private http: HttpClient) { }
+
+  public listarFormasDePago(): Observable<FormaDePago[]>{
+    return this.http.get<FormaDePago[]>(`${this.urlBanckendFormaDePago}/formadepago/listar`);
+  }
 }

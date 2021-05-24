@@ -6,6 +6,4 @@ export interface FormaDePago{
   numeroPagos: number;
   idBanco: number;
   idTipoDeCuenta: number;
-  banco: Banco;
-  tipoDeCuenta: TipoDeCuenta;
 }
