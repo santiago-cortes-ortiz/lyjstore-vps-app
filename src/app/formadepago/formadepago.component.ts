@@ -3,7 +3,6 @@ import {TipocuentaService} from '../../servicios/servicio-tipocuenta/tipocuenta.
 import {FormadepagoService} from '../../servicios/servicio-formadepago/formadepago.service';
 import {TipoDeCuenta} from '../modelos/tipoDeCuenta';
 import {HttpErrorResponse} from '@angular/common/http';
-import {BancoComponent} from '../banco/banco.component';
 import {Banco} from '../banco/banco';
 import {BancoService} from '../../servicios/servicio-banco/banco.service';
 

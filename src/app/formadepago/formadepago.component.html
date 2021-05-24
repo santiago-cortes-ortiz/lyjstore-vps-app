@@ -2,14 +2,22 @@
   <form style="margin-top: 60px">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">N# Tarjeta</label>
-      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="number" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text">Digita el numero de la forma de pago</div>
     </div>
     <div class="mb-3">
       <select class="form-select" aria-label="Default select example">
-        <option selected>Selecciona un banco</option>
+        <option selected disabled>Selecciona un banco</option>
         <option *ngFor="let banco of bancos" value="{{ banco.id }}">{{ banco.nombre }}</option>
       </select>
+      <div class="form-text">Escoge entre los bancos que esten disponibles</div>
+    </div>
+    <div class="mb-3">
+      <select class="form-select" aria-label="Default select example">
+        <option selected disabled>Selecciona un tipo de cuenta</option>
+        <option *ngFor="let tipodecuenta of tiposDeCuenta" value="{{ tipodecuenta.id }}">{{ tipodecuenta.tipo }}</option>
+      </select>
+      <div class="form-text">Escoge entre que tipo de cuenta pertenece la tarjeta</div>
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
