@@ -16,4 +16,9 @@ export class FormadepagoService {
   public listarFormasDePago(): Observable<FormaDePago[]>{
     return this.http.get<FormaDePago[]>(`${this.urlBanckendFormaDePago}/formadepago/listar`);
   }
+
+  public adicionarFormaDePago(formaDePago: FormaDePago, id: number): Observable<FormaDePago>{
+    return this.http.put<FormaDePago>(`${this.urlBanckendFormaDePago}/formadepago/${id}`, formaDePago);
+  }
+
 }
