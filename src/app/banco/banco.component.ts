@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Banco} from './banco';
 import {BancoService} from '../../servicios/servicio-banco/banco.service';
 import {HttpErrorResponse} from '@angular/common/http';

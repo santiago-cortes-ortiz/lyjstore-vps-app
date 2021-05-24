@@ -1,1 +1,16 @@
-<p>formadepago works!</p>
+<div class="container ">
+  <form style="margin-top: 60px">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">N# Tarjeta</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">Digita el numero de la forma de pago</div>
+    </div>
+    <div class="mb-3">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Selecciona un banco</option>
+        <option *ngFor="let banco of bancos" value="{{ banco.id }}">{{ banco.nombre }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
