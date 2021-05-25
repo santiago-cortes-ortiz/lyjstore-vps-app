@@ -6,6 +6,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {Banco} from '../banco/banco';
 import {BancoService} from '../../servicios/servicio-banco/banco.service';
 import {FormaDePago} from './FormaDePago';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-formadepago',
@@ -14,7 +15,10 @@ import {FormaDePago} from './FormaDePago';
 })
 export class FormadepagoComponent implements OnInit {
 
-  public tiposDeCuenta: TipoDeCuenta[] = [];
+  public tiposDeCuenta: TipoDeCuenta[];
+
+  // @ts-ignore
+  public titulitos: [string][string] = ['seleccione un banco', 'selecciona un tipo de cuenta'];
 
   public bancos: Banco[] = [];
 
@@ -61,7 +65,6 @@ export class FormadepagoComponent implements OnInit {
     }
   }
 
-
   public darTiposDeCuenta(): void{
     this.servicioTipoDeCuenta.listarTipoDeCuenta()
       .subscribe(
@@ -86,5 +89,18 @@ export class FormadepagoComponent implements OnInit {
       );
   }
 
+  public adicionarFormaDePago(formulario: NgForm): void{
+    this.servicioFormaDePago.adicionarFormaDePago(formulario.value, 0)
+      .subscribe(
+        (res) => {
+          console.log(res);
+          this.darFormasDePago();
+          formulario.reset();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+  }
 
 }
