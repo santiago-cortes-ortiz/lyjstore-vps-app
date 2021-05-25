@@ -24,6 +24,8 @@ export class FormadepagoComponent implements OnInit {
 
   public formasDePago: FormaDePago[] = [];
 
+  public formaDePagoAEliminar: FormaDePago;
+
   constructor(private servicioTipoDeCuenta: TipocuentaService, private servicioFormaDePago: FormadepagoService,
               private servicioBanco: BancoService) {
   }
@@ -96,6 +98,33 @@ export class FormadepagoComponent implements OnInit {
           console.log(res);
           this.darFormasDePago();
           formulario.reset();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+  }
+
+  public onOpenModal(formaDePago: FormaDePago, mode: string): void{
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-bs-toggle', 'modal');
+    if (mode === 'eliminar'){
+      this.formaDePagoAEliminar = formaDePago;
+      button.setAttribute('data-bs-target', '#eliminarFormaDePagoPorId');
+    }
+    container.appendChild(button);
+    button.click();
+  }
+
+  public eliminarFormaDePagoPorId(id: number): void{
+    this.servicioFormaDePago.eliminarFormaDePagoPorId(id)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.darFormasDePago();
         },
         (error: HttpErrorResponse) => {
           alert(error.message);

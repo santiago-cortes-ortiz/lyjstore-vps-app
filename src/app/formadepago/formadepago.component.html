@@ -22,7 +22,7 @@
     <button [disabled]="formulario.invalid" type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </div>
-<div class="container">
+<div class="container" id="main-container">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -39,16 +39,34 @@
         </svg>
       </th>
       <th scope="col">Tipo de cuenta</th>
+      <th scope="col">Accion</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let formadepago of formasDePago">
       <th scope="row">{{ formadepago.id }}</th>
-      <td>{{ formadepago.numeroPagos }}</td>
+      <td>****{{ formadepago.numeroPagos.toString().substring(12,16) }}</td>
       <td>{{ buscarNombreBancoPorId(formadepago.idBanco) }}  </td>
       <td> {{ buscarTipoDeCuentaPorId(formadepago.idTipoDeCuenta) }} </td>
+      <td><button type="button" (click)="onOpenModal(formadepago,'eliminar')" class="btn btn-danger">Eliminar</button></td>
     </tr>
     </tbody>
   </table>
 </div>
-
+<div class="modal fade" id="eliminarFormaDePagoPorId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar forma de pago</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿ Esta seguro que desea eliminar la forma de pago {{ formaDePagoAEliminar?.id }} ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button  type="button" class="btn btn-danger" (click)="eliminarFormaDePagoPorId(formaDePagoAEliminar.id)" data-bs-dismiss="modal">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

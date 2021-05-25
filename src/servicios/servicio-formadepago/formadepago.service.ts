@@ -21,4 +21,8 @@ export class FormadepagoService {
     return this.http.put<FormaDePago>(`${this.urlBanckendFormaDePago}/formadepago/${id}`, formaDePago);
   }
 
+  public eliminarFormaDePagoPorId(idFormaDePago: number): Observable<void>{
+    return this.http.delete<void>(`${this.urlBanckendFormaDePago}/formadepago/${idFormaDePago}`);
+  }
+
 }
