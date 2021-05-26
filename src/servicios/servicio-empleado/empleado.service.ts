@@ -18,4 +18,8 @@ export class EmpleadoService {
     return this.http.get<Empleado[]>(`${this.urlBackendEmpleado}/empleado/listar`);
   }
 
+  public adicionarEmpleado(empleado: Empleado, id: number): Observable<Empleado> {
+    return this.http.put<Empleado>(`${this.urlBackendEmpleado}/empleado/${id}`, empleado);
+  }
+
 }
