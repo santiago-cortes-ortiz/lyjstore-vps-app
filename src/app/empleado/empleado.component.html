@@ -1,7 +1,22 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
+<nav class=" navbar-expand-lg navbar navbar-light bg-light">
+  <div class="container container-fluid">
+    <a class="navbar-brand" routerLink="inicio">Administrar Empelados</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active hoveradd" aria-current="page" >Agregar Empelado</a>
+        </li>
+      </ul>
+    </div>
+    <form class="d-flex">
+      <input type="search"
+             name="key" id="searchBanco" class="form-control mr-sm-2" placeholder="buscar empleado..." required>
+    </form>
+  </div>
+</nav>
 <!-- Team -->
 <section id="team" class="pb-5">
   <div class="container">

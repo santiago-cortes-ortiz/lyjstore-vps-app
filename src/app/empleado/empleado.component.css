@@ -127,3 +127,8 @@ section .section-title {
   height: 120px;
   border-radius: 50%;
 }
+.hoveradd:hover{
+  background-color: #902fff;
+  border-radius: 5px;
+  color: white !important;
+}
