@@ -9,6 +9,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { FormadepagoComponent } from './formadepago/formadepago.component';
+import { EmpleadoComponent } from './empleado/empleado.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormadepagoComponent } from './formadepago/formadepago.component';
     NavegacionComponent,
     BancoComponent,
     InicioComponent,
-    FormadepagoComponent
+    FormadepagoComponent,
+    EmpleadoComponent
   ],
   imports: [
     BrowserModule,
