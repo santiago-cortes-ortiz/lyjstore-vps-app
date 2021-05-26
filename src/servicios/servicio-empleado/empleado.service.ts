@@ -22,4 +22,8 @@ export class EmpleadoService {
     return this.http.put<Empleado>(`${this.urlBackendEmpleado}/empleado/${id}`, empleado);
   }
 
+  public eliminarEmpleadoPorId(idEmpleado: number): Observable<void>{
+    return this.http.delete<void>(`${this.urlBackendEmpleado}/empleado/${idEmpleado}`);
+  }
+
 }
