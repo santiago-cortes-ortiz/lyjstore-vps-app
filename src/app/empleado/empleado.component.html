@@ -24,15 +24,15 @@
     <h5 class="section-title h2">Nuestro equipo de baneados</h5>
     <div class="row">
       <!-- Team member -->
-      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div *ngFor="let empleado of empleados" class="col-xs-12 col-sm-6 col-md-4">
         <div class="image-flip" >
           <div class="mainflip flip-0">
             <div class="frontside">
               <div class="card">
                 <div class="card-body text-center">
                   <p><img class=" img-fluid" src="https://mir-s3-cdn-cf.behance.net/projects/404/a0eb34102440025.Y3JvcCwxMjA5LDk0NSwxNjE5LDEx.png" alt="card image"></p>
-                  <h4 class="card-title">Nombre</h4>
-                  <p class="card-text">Siempre hay que ser huminde y tener gran empatia con mis compaeritos.</p>
+                  <h4 class="card-title">{{empleado.nombre}}</h4>
+                  <p class="card-text">Me pagan como los esclavos osea con comida pedida por rappi.</p>
                   <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                 </div>
               </div>
@@ -40,8 +40,11 @@
             <div class="backside">
               <div class="card">
                 <div class="card-body text-center mt-4">
-                  <h4 class="card-title">Nombre</h4>
-                  <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                  <h4 class="card-title">{{empleado.nombre}} {{empleado.apellido}}</h4>
+                  <p class="card-text"> <strong>Cedula:</strong> {{empleado.cedula}}</p>
+                  <p class="card-text"> <strong>Fecha nacimiento:</strong> {{empleado.fechaNacimiento}}</p>
+                  <p class="card-text"> <strong>Correo:</strong> {{empleado.correoElectronico}}</p>
+                  <p class="card-text"> <strong>Telefono:</strong> {{empleado.telefono}}</p>
                   <ul class="list-inline">
                     <li class="list-inline-item">
                       <a target="_blank" href="#">
@@ -79,10 +82,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form #formulario="ngForm" >
+        <form #formulario="ngForm" (ngSubmit)="adicionarEmpleado(formulario)" >
           <div class="mb-3 form-group">
             <label for="exampleInputEmail1" class="form-label">N° Cedula</label>
-            <input type="number" ngModel name="numeroPagos" class="form-control" id="exampleInputEmail1" placeholder="numero de la cedula" required="required" aria-describedby="emailHelp">
+            <input type="number" ngModel name="cedula" class="form-control" id="exampleInputEmail1" placeholder="numero de la cedula" required="required" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">Digita el numero de la cedula</div>
           </div>
           <div class="mb-3 form-group">
@@ -103,27 +106,27 @@
           <div class="mb-3 form-group">
             <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
             <input type="date" ngModel name="fechaNacimiento" class="form-control" id="fechaNacimiento"  required>
-            <div class="form-text">Fecha de nacimiento.</div>
           </div>
           <div class="mb-3 form-group">
-            <label for="correoElectronico" class="form-label">Fecha Nacimiento</label>
+            <label for="correoElectronico" class="form-label">Email</label>
             <input type="email" ngModel name="correoElectronico" class="form-control" id="correoElectronico"  required>
             <div class="form-text">Email...</div>
           </div>
           <div class="mb-3">
             <label for="formadepago" class="form-label">Forma de pago</label>
-            <select id="formadepago" class="form-select" required ngModel name="idTipoDeCuenta" aria-label="Default select example">
+            <select id="formadepago" class="form-select" required ngModel name="idFormaDePago" aria-label="Default select example">
               <option disabled selected>selecciona el metodo de pago</option>
-              <option required>afsdfa</option>
+              <option *ngFor="let formadepago of formasDePago" [ngValue]="formadepago.id" > {{ formadepago.numeroPagos }} </option>
             </select>
             <div class="form-text">Escoge entre los metodos de pago</div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="adicionar-banco-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button [disabled]="formulario.invalid" type="submit" class="btn btn-primary">Guardar</button>
+            <button type="button" id="adicionar-empleado-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button [disabled]="formulario.invalid" type="submit"  class="btn btn-primary">Guardar</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+<!-- / adicionalr modal -->

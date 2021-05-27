@@ -67,7 +67,6 @@ export class EmpleadoComponent implements OnInit {
   }
 
   public adicionarEmpleado(formulario: NgForm): void{
-    // @ts-ignore
     document.getElementById('adicionar-empleado-form').click();
     // @ts-ignore
     this.empleadoServicio.adicionarEmpleado(formulario.value, 0)
