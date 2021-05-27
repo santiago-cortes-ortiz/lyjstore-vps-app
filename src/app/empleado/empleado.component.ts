@@ -3,6 +3,8 @@ import {EmpleadoService} from '../../servicios/servicio-empleado/empleado.servic
 import {Empleado} from './empleado';
 import {HttpErrorResponse} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
+import {FormaDePago} from '../formadepago/FormaDePago';
+import {FormadepagoService} from '../../servicios/servicio-formadepago/formadepago.service';
 
 @Component({
   selector: 'app-empleado',
@@ -13,16 +15,30 @@ export class EmpleadoComponent implements OnInit {
 
   public empleados: Empleado[] = [];
 
-  constructor(private empleadoServicio: EmpleadoService) { }
+  public formasDePago: FormaDePago[] = [];
+
+  constructor(private empleadoServicio: EmpleadoService, private formaDePagoServicio: FormadepagoService) { }
 
   ngOnInit(): void {
     this.listarEmpleados();
+    this.listarFormasDePago();
   }
 
   public listarEmpleados(): void{
     this.empleadoServicio.listarEmpleados().subscribe(
       (response: Empleado[]) => {
         this.empleados = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public listarFormasDePago(): void{
+    this.formaDePagoServicio.listarFormasDePago().subscribe(
+      (response: FormaDePago[]) => {
+        this.formasDePago = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
