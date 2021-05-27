@@ -1,4 +1,7 @@
 # LyjstoreVpsApp
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
 
