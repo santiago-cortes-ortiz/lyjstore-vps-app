@@ -12,7 +12,7 @@
       </ul>
     </div>
     <form class="d-flex">
-      <input type="search"
+      <input type="search" (ngModelChange) = "buscarEmpleados(key.value)" #key = "ngModel" ngModel
              name="key" id="searchBanco" class="form-control mr-sm-2" placeholder="buscar baneado..." required>
     </form>
   </div>
@@ -47,7 +47,7 @@
                   <p class="card-text"> <strong>Telefono:</strong> {{empleado.telefono}}</p>
                   <ul class="list-inline">
                     <li class="list-inline-item">
-                      <a target="_blank" href="#">
+                      <a target="_blank" (click)="onOpenModal(empleado, 'eliminar')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                           <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                         </svg>
@@ -130,3 +130,21 @@
   </div>
 </div>
 <!-- / adicionalr modal -->
+<!-- EliminarBANCO -->
+<div class="modal fade" id="eliminarEmpleadoPorId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar empleado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿ Esta seguro que desea eliminar el empleado con cedula: {{ empleadoAEliminar?.cedula }} ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button (click)="eliminarEmpleadoPorId(empleadoAEliminar?.cedula)" type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

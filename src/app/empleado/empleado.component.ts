@@ -5,6 +5,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import {FormaDePago} from '../formadepago/FormaDePago';
 import {FormadepagoService} from '../../servicios/servicio-formadepago/formadepago.service';
+import {Banco} from '../banco/banco';
 
 @Component({
   selector: 'app-empleado',
@@ -14,6 +15,8 @@ import {FormadepagoService} from '../../servicios/servicio-formadepago/formadepa
 export class EmpleadoComponent implements OnInit {
 
   public empleados: Empleado[] = [];
+
+  public empleadoAEliminar: Empleado;
 
   public formasDePago: FormaDePago[] = [];
 
@@ -46,6 +49,21 @@ export class EmpleadoComponent implements OnInit {
     );
   }
 
+  public buscarEmpleados(key: string): void{
+    const resultados: Empleado[] = [];
+    for (const empleado of this.empleados){
+      if (empleado.nombre.indexOf(key) !== -1
+        || empleado.correoElectronico.indexOf(key) !== -1
+      ){
+        resultados.push(empleado);
+      }
+    }
+    this.empleados = resultados;
+    if (resultados.length === 0 || !key){
+      this.listarEmpleados();
+    }
+  }
+
   public onOpenModal(empleado: Empleado, mode: string): void{
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
@@ -59,6 +77,7 @@ export class EmpleadoComponent implements OnInit {
       button.setAttribute('data-bs-target', '#modificarEmpleado');
     }
     if (mode === 'eliminar'){
+      this.empleadoAEliminar = empleado;
       button.setAttribute('data-bs-target', '#eliminarEmpleadoPorId');
     }
     // @ts-ignore
@@ -93,5 +112,18 @@ export class EmpleadoComponent implements OnInit {
         }
       );
   }*/
+
+  public eliminarEmpleadoPorId(idEmpleado: number): void{
+    this.empleadoServicio.eliminarEmpleadoPorId(idEmpleado)
+      .subscribe(
+        (response: void) => {
+          console.log(response);
+          this.listarEmpleados();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+  }
 
 }
