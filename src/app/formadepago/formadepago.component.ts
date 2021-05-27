@@ -18,7 +18,7 @@ export class FormadepagoComponent implements OnInit {
   public tiposDeCuenta: TipoDeCuenta[];
 
   // @ts-ignore
-  public titulitos: [string][string] = ['seleccione un banco', 'selecciona un tipo de cuenta'];
+  public titulitos: [string][string] = ['seleccione la entidad', 'selecciona un tipo de cuenta'];
 
   public bancos: Banco[] = [];
 

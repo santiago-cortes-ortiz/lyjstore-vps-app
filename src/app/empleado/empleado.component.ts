@@ -121,7 +121,7 @@ export class EmpleadoComponent implements OnInit {
           this.listarEmpleados();
         },
         (error: HttpErrorResponse) => {
-          alert(error.message);
+          alert('Hay una referencia hacia la tabla usuarios master');
         }
       );
   }

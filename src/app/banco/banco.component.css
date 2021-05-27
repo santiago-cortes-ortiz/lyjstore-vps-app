@@ -4,3 +4,6 @@
 .mayuscula{
   text-transform: uppercase;
 }
+#main-container{
+  background-color: #eeeeee !important;
+}

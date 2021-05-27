@@ -71,7 +71,7 @@ section .section-title {
   -webkit-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   z-index: 2;
-  margin-bottom: 30px;
+  margin: 10px;
 }
 
 .backside {
