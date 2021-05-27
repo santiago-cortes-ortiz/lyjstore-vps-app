@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active hoveradd" aria-current="page" >Agregar Empelado</a>
+          <a class="nav-link active hoveradd" aria-current="page"  (click)="onOpenModal(null,'agregar')" >Agregar Empelado</a>
         </li>
       </ul>
     </div>
@@ -20,7 +20,7 @@
 
 <!-- Team -->
 <section id="team" class="pb-5">
-  <div class="container">
+  <div class="container" id="main-container">
     <h5 class="section-title h2">Nuestro equipo de baneados</h5>
     <div class="row">
       <!-- Team member -->
@@ -70,3 +70,60 @@
   </div>
 </section>
 <!-- Team -->
+<!-- adicionalr modal -->
+<div class="modal fade" id="adicionarEmpleado" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Adiciona un empleado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #formulario="ngForm" >
+          <div class="mb-3 form-group">
+            <label for="exampleInputEmail1" class="form-label">N° Cedula</label>
+            <input type="number" ngModel name="numeroPagos" class="form-control" id="exampleInputEmail1" placeholder="numero de la cedula" required="required" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Digita el numero de la cedula</div>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" ngModel name="nombre" class="form-control" id="nombre" required>
+            <div class="form-text">Nombre del empleado a guardar.</div>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" ngModel name="apellido" class="form-control" id="apellido"  required>
+            <div class="form-text">Apellido del empleado a guardar.</div>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="telefono" class="form-label">Telefono</label>
+            <input type="number" ngModel name="telefono" class="form-control" id="telefono"  required>
+            <div class="form-text">Telefono del empleado a guardar.</div>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
+            <input type="date" ngModel name="fechaNacimiento" class="form-control" id="fechaNacimiento"  required>
+            <div class="form-text">Fecha de nacimiento.</div>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="correoElectronico" class="form-label">Fecha Nacimiento</label>
+            <input type="email" ngModel name="correoElectronico" class="form-control" id="correoElectronico"  required>
+            <div class="form-text">Email...</div>
+          </div>
+          <div class="mb-3">
+            <label for="formadepago" class="form-label">Forma de pago</label>
+            <select id="formadepago" class="form-select" required ngModel name="idTipoDeCuenta" aria-label="Default select example">
+              <option disabled selected>selecciona el metodo de pago</option>
+              <option required>afsdfa</option>
+            </select>
+            <div class="form-text">Escoge entre los metodos de pago</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="adicionar-banco-form" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button [disabled]="formulario.invalid" type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
